@@ -47,7 +47,6 @@ function wagesEarnedOnDate(obj,str){
 function allWagesFor(obj){
     let totalHours = 0
     obj.timeInEvents.forEach(ele => {
-        // let timeOut = obj.timeOut.find(element => element.date === ele.date)
         totalHours += hoursWorkedOnDate(obj,ele.date)
     });
     return totalHours * obj.payPerHour
@@ -64,20 +63,6 @@ function calculatePayroll(array){
     })
     return totalMony
 }
-
-// cRecord = createEmployeeRecord(["Julius", "Caesar", "General", 1000])
-// updatedBpRecord = createTimeInEvent(cRecord, "0044-03-15 0900")
-// updatedBpRecord = createTimeOutEvent(cRecord, "0044-03-15 1100")
-// console.log(hoursWorkedOnDate(cRecord, "0044-03-15"))
-
-    // let bpRecord = createEmployeeRecord(["Byron", "Poodle", "Mascot", 3])
-    //     let updatedBpRecord = createTimeOutEvent(bpRecord, "2014-02-28 2000")
-    //      updatedBpRecord = createTimeInEvent(bpRecord, "2014-02-28 1400")
-    //      updatedBpRecord = createTimeInEvent(bpRecord, "2014-02-29 700")
-    //      updatedBpRecord = createTimeOutEvent(bpRecord, "2014-02-29 2000")
-
-    // //     // let newEvent = updatedBpRecord.timeInEvents[0]
-    //     console.log(hoursWorkedOnDate(bpRecord,"2014-02-28"));
 
 
 
