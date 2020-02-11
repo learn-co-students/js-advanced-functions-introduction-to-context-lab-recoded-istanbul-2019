@@ -265,6 +265,7 @@ the function returns.
 
 ### `findEmployeeByFirstName`
 
+ 
 * **Argument(s)**
   * `srcArray`: Array of employee records
   * `firstName`: String representing a first name held in an employee record
