@@ -20,10 +20,25 @@ function createEmployeeRecords(employee) {
 }
 
 function createTimeInEvent(bpRecord, time) {
-    let date = bpRecord.split(' ');
+    let date = time.split(' ');
     let newEvent = { type: "TimeIn",
                      date: date[0],
-                     hour: date[1]
+                     hour: parseInt(date[1])
                     };
-    return bpRecord.timeInEvents.push(newEvent);
+    bpRecord.timeInEvents.push(newEvent);
+    return bpRecord;
+}
+
+function createTimeOutEvent(bpRecord, time) {
+    let date = time.split(' ');
+    let newEvent = { type: "TimeOut",
+                     date: date[0],
+                     hour: parseInt(date[1])
+                    };
+    bpRecord.timeOutEvents.push(newEvent);
+    return bpRecord;
+}
+
+function hoursWorkedOnDate(cRecord, time) {
+    
 }
