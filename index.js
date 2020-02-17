@@ -18,3 +18,12 @@ function createEmployeeRecords(employee) {
     }
     return employeeRecords;
 }
+
+function createTimeInEvent(bpRecord, time) {
+    let date = bpRecord.split(' ');
+    let newEvent = { type: "TimeIn",
+                     date: date[0],
+                     hour: date[1]
+                    };
+    return bpRecord.timeInEvents.push(newEvent);
+}
