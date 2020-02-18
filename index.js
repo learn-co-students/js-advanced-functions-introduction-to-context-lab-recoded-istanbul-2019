@@ -39,6 +39,27 @@ function createTimeOutEvent(bpRecord, time) {
     return bpRecord;
 }
 
-function hoursWorkedOnDate(cRecord, time) {
-    
+function hoursWorkedOnDate(employee, date) {
+    const timeIn = employee.timeInEvents.find(event => event.date === date);
+    const timeOut = employee.timeOutEvents.find(event => event.date === date);
+    return (timeOut.hour - timeIn.hour) / 100;
+}
+
+function wagesEarnedOnDate(employee, date) {
+    let hoursWorked = hoursWorkedOnDate(employee,date);
+    return hoursWorked * employee.payPerHour; 
+}
+
+function allWagesFor(employee) {
+    const dates = employee.timeOutEvents.map(event => event.date)
+    return dates.reduce((total, date) => total + wagesEarnedOnDate(employee, date), 0)
+}
+
+
+function calculatePayroll(employee) {
+        return employee.reduce((total, element) => total + allWagesFor(element), 0)
+} 
+
+function findEmployeeByFirstName(srcArray, firstName) {
+    return srcArray.find(name => (name.firstName === firstName));
 }
