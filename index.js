@@ -53,7 +53,7 @@ function wagesEarnedOnDate(employee, date) {
 function allWagesFor(employee) {
     const dates = employee.timeOutEvents.map(event => event.date)
     return dates.reduce((total, date) => total + wagesEarnedOnDate(employee, date), 0)
-}
+} // reusability :(
 
 
 function calculatePayroll(employee) {
