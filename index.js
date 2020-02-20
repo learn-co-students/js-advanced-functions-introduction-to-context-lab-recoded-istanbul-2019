@@ -1,11 +1,11 @@
 // Your code here
-let allWagesFor = function () {
-    let eligibleDates = this.timeInEvents.map(function (e) {
+let allWagesFor = function (rec) {
+    let eligibleDates = rec.timeInEvents.map(function (e) {
         return e.date
     })
 
     let payable = eligibleDates.reduce(function (memo, d) {
-        return memo + wagesEarnedOnDate.call(this, d)
+        return memo + wagesEarnedOnDate(rec, d)
     }.bind(this), 0) // <== Hm, why did we need to add bind() there? We'll discuss soon!
 
     return payable 
@@ -66,3 +66,18 @@ function createEmployeeRecord(arr){
   function wagesEarnedOnDate(rec, date){
    return hoursWorkedOnDate(rec,date) * rec.payPerHour;
   }
+
+  function findEmployeeByFirstName(srcArr,firstName){
+    const result = srcArr.find(elm => elm.firstName === firstName ) 
+    return result;
+    }
+
+  function calculatePayroll(srcArr){
+    const total = srcArr.reduce((memo,curr)=>{
+      const dates= curr.timeInEvents.map(elem => elem.date)
+      return memo += dates.reduce((tot,val)=>tot += wagesEarnedOnDate(curr,val),0)
+    },0)
+    return total;
+  }
+  
+  
