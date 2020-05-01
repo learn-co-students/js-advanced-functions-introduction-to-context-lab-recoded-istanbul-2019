@@ -1,5 +1,5 @@
 // Your code here
-function createEmployeeRecord([array]) {
+function createEmployeeRecord(array) {
     
     let obj = {
         firstName: array[0],
