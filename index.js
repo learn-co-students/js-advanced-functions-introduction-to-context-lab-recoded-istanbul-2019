@@ -64,27 +64,11 @@ function allWagesFor(employeeRecord){
     },0);
 }
 
-// function allWagesFor(employeeRecord){
-//     let dates= employeeRecord.timeInEvents.map((employee)=>{ 
-//         if(!employee.date)
-//        console.log(employee.date)//?????????????????????
-//         return employee.date;
-//     })
-//     return dates.reduce((acc,date)=>{
-//        return acc+wagesEarnedOnDate(employeeRecord,date);
-//     },0);
-// }
-
 function findEmployeeByFirstName(srcArray,firstName){
     let matchingRecord= srcArray.find(element=> element.firstName===firstName)
     return matchingRecord;
 }
-
 function calculatePayroll(employeeRecords){
     return employeeRecords.reduce((acc, employeeRecord) => acc + allWagesFor(employeeRecord), 0)
 
 }
-
-// let employees = [sRecord, rRecord]
-//         let grandTotalOwed = employees.reduce((m, e) => m + allWagesFor(e), 0)
-//         expect(grandTotalOwed).to.equal(calculatePayroll(employees))
